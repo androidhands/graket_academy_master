@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>728614145047-ofv911o4jii6860lge9qv4e052snqqat.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.728614145047-ofv911o4jii6860lge9qv4e052snqqat</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBbKovrbuYD12G5OpRQhkZ_y7JBMzhwGR4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>728614145047</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.yssoftware.graketAcademy</string>
+	<key>PROJECT_ID</key>
+	<string>graket-academy</string>
+	<key>STORAGE_BUCKET</key>
+	<string>graket-academy.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:728614145047:ios:a0695c59b10874520c2052</string>
+	<key>DATABASE_URL</key>
+	<string>https://graket-academy-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

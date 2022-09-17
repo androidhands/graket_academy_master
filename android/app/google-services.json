@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "728614145047",
+    "firebase_url": "https://graket-academy-default-rtdb.firebaseio.com",
+    "project_id": "graket-academy",
+    "storage_bucket": "graket-academy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728614145047:android:fae62b3259b9574f0c2052",
+        "android_client_info": {
+          "package_name": "com.ys_software.graket_academy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728614145047-1u89sr6m10ei96il3du38m93q9a4i1ng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTb18M2it4ZucxTAmY3fmLbGzxjcWOOiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728614145047-1u89sr6m10ei96il3du38m93q9a4i1ng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
