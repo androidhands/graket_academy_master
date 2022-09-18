@@ -29,7 +29,7 @@ class Database {
   }
 
   late DatabaseReference? _ref;
-  late DatabaseEvent? _event;
+  //late DatabaseEvent? _event;
   late DataSnapshot? _snapshot;
   late DataSnapshot data;
   Map<String, dynamic>? _allData = {};
@@ -37,7 +37,7 @@ class Database {
   Map<String, dynamic>? _allUsers = {};
 
   DatabaseReference? get ref => _ref;
-  DatabaseEvent? get event => _event;
+//  DatabaseEvent? get event => _event;
   DataSnapshot? get snapshot => _snapshot;
   Map<String, dynamic>? get allData => _allData;
   Map<String, dynamic>? get getAllCourses => _allCourses;

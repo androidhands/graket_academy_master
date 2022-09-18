@@ -183,7 +183,8 @@ class _SignInPageState extends State<SignInPage> {
                 const SizedBox(height: 40),
                 Center(
                   child: !isProcessing
-                      ? ElevatedButton(
+                      ? ElevatedButton.icon(
+                        icon: const Icon(Icons.login),
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -245,7 +246,8 @@ class _SignInPageState extends State<SignInPage> {
                                   'Invalid Email', 'Please Type Valid Email');
                             }
                           },
-                          child: Container(
+                         
+                          label: Container(
                             alignment: Alignment.center,
                             width: size.width - 40,
                             height: 45,

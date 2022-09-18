@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:graket_academy_master/app_pages/welcome_page.dart';
 import 'package:graket_academy_master/authentication.dart';
 import 'package:graket_academy_master/core/firebase.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     FocusScope.of(context).unfocus();
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'GrakeT Academy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
