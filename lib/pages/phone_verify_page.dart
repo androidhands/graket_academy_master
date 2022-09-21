@@ -1,14 +1,16 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 import 'package:graket_academy_master/app_pages/home_pages/home.dart';
+import 'package:graket_academy_master/app_pages/starting_page.dart';
 import 'package:graket_academy_master/authentication.dart';
 import 'package:graket_academy_master/components/colors.dart';
 import 'package:graket_academy_master/core/alert_dialog.dart';
 import 'package:graket_academy_master/core/firebase.dart';
 import 'package:graket_academy_master/pages/info_page.dart';
 import 'package:graket_academy_master/pages/phone_signup_page.dart';
-
+import 'package:graket_academy_master/routing/routing.gr.dart';
 
 class PhoneVerifyPage extends StatefulWidget {
   final String phoneNumber;
@@ -45,11 +47,11 @@ class _PhoneVerifyPageState extends State<PhoneVerifyPage> {
               bool isExist = database.isExist('users/$uid');
               database.setData(
                   'users/$uid', {'phone': widget.phoneNumber, 'verify': true});
-              Navigator.pushReplacement(
+              /*  Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          isExist ? Home(index: 0) : const InfoPage()));
+                          isExist ? Home(index: 0) : const InfoPage())); */
             } else {
               ShowAlertDialog().showErrorDialog(context, 'Signin Error', '');
             }
@@ -203,10 +205,11 @@ class _PhoneVerifyPageState extends State<PhoneVerifyPage> {
                           bool isExist = database.isExist('users/$uid');
                           database.setData('users/$uid',
                               {'phone': widget.phoneNumber, 'verify': true});
-                          Navigator.pushReplacement(
+                          context.router.replace(AppStartingRoute());
+                          /*   Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => isExist?Home(index: 0) : const InfoPage()));
+                                  builder: (context) => isExist?Home(index: 0) : const InfoPage())); */
                         } else {
                           ShowAlertDialog().showErrorDialog(
                               context, 'Signin Error', value.toString());

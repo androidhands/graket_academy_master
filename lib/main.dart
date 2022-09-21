@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
@@ -9,6 +10,7 @@ import 'package:graket_academy_master/pages/splash_page.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
+import 'routing/routing.gr.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,45 +28,37 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  // await prefs.setString('isLoggedIn', 'false');
-  // await prefs.setString('isFirstOpen', 'false');
-  // await prefs.setString('type', 'none');
-  // await prefs.setString('uid', 'none');
-  String isFirstOpen = prefs.getString('isFirstOpen') ?? 'false';
-  String isLoggedIn = prefs.getString('isLoggedIn') ?? 'false';
-
-  if (EmailAuthentication().user?.uid != null) {
-    isLoggedIn = 'true';
-    isFirstOpen = 'true';
-    // print(EmailAuthentication().user.uid);
-  } else {
-    isLoggedIn = 'false';
-  }
-  Database database = Database();
+ 
   
 
   runApp(
-    MyApp(isFirstOpen, isLoggedIn),
+    MyApp(),
   );
 }
 
 class MyApp extends StatelessWidget {
-  MyApp(this.isFirstOpen, this.isLoggedIn, {Key? key}) : super(key: key);
-  String isFirstOpen;
-  String isLoggedIn;
+ 
+ 
+  final _appRouter = AppRouter();
+
+  MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     FocusScope.of(context).unfocus();
-    return GetMaterialApp(
+    return GetMaterialApp.router(
+
       title: 'GrakeT Academy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'ElMessiri',
       ),
-      home: 
-          isFirstOpen != 'true' ? const SplashPage() : WelcomePage(isLoggedIn),
+        routerDelegate: AutoRouterDelegate(_appRouter),
+
+      // or
+      // routerDelegate:_appDelegate.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
+     
     );
   }
 }

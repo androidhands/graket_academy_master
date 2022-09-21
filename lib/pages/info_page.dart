@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graket_academy_master/app_pages/home_pages/home.dart';
+import 'package:graket_academy_master/app_pages/starting_page.dart';
 import 'package:graket_academy_master/authentication.dart';
 import 'package:graket_academy_master/components/colors.dart';
 import 'package:graket_academy_master/core/firebase.dart';
+import 'package:graket_academy_master/routing/routing.gr.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -276,11 +279,13 @@ class _InfoPageState extends State<InfoPage> {
                                             borderRadius:
                                                 BorderRadius.circular(10))),
                                     onPressed: () {
-                                      Navigator.pushReplacement(
+                                      context.router
+                                          .replace(AppStartingRoute());
+                                      /*  Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  Home(index: 0)));
+                                                  Home(index: 0))); */
                                     },
                                     child: Container(
                                       alignment: Alignment.center,

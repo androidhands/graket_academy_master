@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graket_academy_master/app_pages/home_pages/home.dart';
 import 'package:graket_academy_master/authentication.dart';
@@ -5,6 +6,7 @@ import 'package:graket_academy_master/components/colors.dart';
 import 'package:graket_academy_master/core/alert_dialog.dart';
 import 'package:graket_academy_master/pages/email_signup_page.dart';
 import 'package:graket_academy_master/pages/phone_signup_page.dart';
+import 'package:graket_academy_master/routing/routing.gr.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -45,7 +47,6 @@ class _SignInPageState extends State<SignInPage> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('isLoggedIn', 'true');
   }
-
 
   setFirstOpen() async {
     final prefs = await SharedPreferences.getInstance();
@@ -184,7 +185,7 @@ class _SignInPageState extends State<SignInPage> {
                 Center(
                   child: !isProcessing
                       ? ElevatedButton.icon(
-                        icon: const Icon(Icons.login),
+                          icon: const Icon(Icons.login),
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -213,11 +214,12 @@ class _SignInPageState extends State<SignInPage> {
                                     setState(() {
                                       isProcessing = false;
                                     });
-                                    Navigator.push(
+                                    context.router.replace(const AppMainRoute());
+                                   /*  Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) => Home(index: 0)),
-                                    );
+                                    ); */
                                   } else {
                                     // Fail SignIn
                                     setState(() {
@@ -246,7 +248,6 @@ class _SignInPageState extends State<SignInPage> {
                                   'Invalid Email', 'Please Type Valid Email');
                             }
                           },
-                         
                           label: Container(
                             alignment: Alignment.center,
                             width: size.width - 40,

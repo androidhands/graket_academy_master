@@ -1,11 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:graket_academy_master/app_pages/app_main_page.dart';
 import 'package:graket_academy_master/app_pages/home_pages/home.dart';
 
 import 'dart:async';
 
 import 'package:graket_academy_master/components/colors.dart';
 import 'package:graket_academy_master/pages/signin_page.dart';
-
+import 'package:graket_academy_master/routing/routing.gr.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage(this.isLoggedIn, {Key? key}) : super(key: key);
@@ -20,8 +22,16 @@ class _WelcomePageState extends State<WelcomePage> {
     super.initState();
     Timer(
         const Duration(seconds: 5),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => widget.isLoggedIn=='true' ? Home(index: 0) : const SignInPage())));
+        () => widget.isLoggedIn == 'true'
+            ? context.router.replace(AppMainRoute())
+            : const SignInPage());
+
+    /*  Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => widget.isLoggedIn == 'true'
+                    ? Home(index: 0)
+                    : const SignInPage()))); */
   }
 
   @override

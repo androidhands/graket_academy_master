@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:graket_academy_master/authentication.dart';
 import 'package:graket_academy_master/components/colors.dart';
@@ -6,6 +7,7 @@ import 'package:graket_academy_master/core/firebase.dart';
 import 'package:graket_academy_master/pages/email_verify_page.dart';
 import 'package:graket_academy_master/pages/phone_signup_page.dart';
 import 'package:graket_academy_master/pages/signin_page.dart';
+import 'package:graket_academy_master/routing/routing.gr.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EmailSignUpPage extends StatefulWidget {
@@ -41,7 +43,7 @@ class _EmailSignUpPageState extends State<EmailSignUpPage> {
 
   addUser(email, uid) {
     Database database = Database();
-    database.setData('users/$uid', {'email': email, 'verify' : false});
+    database.setData('users/$uid', {'email': email, 'verify': false});
   }
 
   bool isPassword(String value) {
@@ -340,15 +342,18 @@ class _EmailSignUpPageState extends State<EmailSignUpPage> {
                                         password: passController.text)
                                     .then((value) async {
                                   if (value == null) {
-                                    addUser(emailController.text, EmailAuthentication().user.uid);
+                                    addUser(emailController.text,
+                                        EmailAuthentication().user.uid);
                                     addPref(emailController.text,
                                         EmailAuthentication().user.uid);
                                     EmailAuthentication().userVerify();
-                                    Navigator.pushReplacement(
+                                    context.router
+                                        .replace(const AppMainRoute());
+                                    /*  Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                const EmailVerifyPage()));
+                                                const EmailVerifyPage())); */
                                   } else {
                                     ShowAlertDialog().showErrorDialog(
                                         context, 'Signup Error', value);

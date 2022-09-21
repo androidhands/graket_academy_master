@@ -227,13 +227,14 @@ class _CheckOutState extends State<CheckOut> {
                       String uid = EmailAuthentication().user?.uid;
                       List myCourses = [];
                       if (database.isExist('users/$uid/courses')) {
-                        myCourses = database.getAllUsers?[uid]['courses'].keys.toList();
+                        myCourses =
+                            database.getAllUsers?[uid]['courses'].keys.toList();
                       }
 
-                      database.setData('users/$uid/courses',
-                          {widget.id: widget.id});
-                      ShowAlertDialog().showDoneDialog(context, 'Good job!',
-                          'Thanks for joining us', Home(index: 1));
+                      database.setData(
+                          'users/$uid/courses', {widget.id: widget.id});
+                      /* ShowAlertDialog().showDoneDialog(context, 'Good job!',
+                          'Thanks for joining us', Home(index: 1)); */
                     }
                   },
                   style: ElevatedButton.styleFrom(

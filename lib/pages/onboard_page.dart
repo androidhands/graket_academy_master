@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_onboard/flutter_onboard.dart';
 import 'package:graket_academy_master/components/colors.dart';
 import 'package:graket_academy_master/pages/signin_page.dart';
-
+import 'package:graket_academy_master/routing/routing.gr.dart';
 
 class OnboardPage extends StatefulWidget {
   const OnboardPage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _OnboardPageState extends State<OnboardPage> {
     Size size = MediaQuery.of(context).size;
     double width = size.width;
     return Scaffold(
-      body:OnBoard(
+      body: OnBoard(
         pageController: _pageController,
         // Either Provide onSkip Callback or skipButton Widget to handle skip state
         onSkip: () {
@@ -52,7 +53,9 @@ class _OnboardPageState extends State<OnboardPage> {
           padding: const EdgeInsets.only(top: 20, right: 10),
           child: TextButton(
             onPressed: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SignInPage()));
+              context.router.replace(SignInRoute());
+              /* Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const SignInPage())); */
             },
             child: const Text(
               "skip >",
@@ -90,6 +93,7 @@ class _OnboardPageState extends State<OnboardPage> {
       ),
     );
   }
+
   void _onNextTap(OnBoardState onBoardState) {
     if (!onBoardState.isLastPage) {
       _pageController.animateToPage(
@@ -98,7 +102,9 @@ class _OnboardPageState extends State<OnboardPage> {
         curve: Curves.easeInOutSine,
       );
     } else {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const SignInPage()));
+      context.router.replace(AppMainRoute());
+      /* Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const SignInPage())); */
     }
   }
 }
@@ -111,14 +117,12 @@ final List<OnBoardModel> onBoardData = [
   ),
   const OnBoardModel(
     title: "Connect to the world",
-    description:
-    "Connect with the world\n just in your phone",
+    description: "Connect with the world\n just in your phone",
     imgUrl: 'assets/images/onboard2.png',
   ),
   const OnBoardModel(
     title: "Safe & Secure",
-    description:
-    "Payment, courses are insecure\n Your information is safe!",
+    description: "Payment, courses are insecure\n Your information is safe!",
     imgUrl: 'assets/images/onboard3.png',
   ),
 ];
